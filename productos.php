@@ -6,25 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UAJMS-Informatica</title>
-    <link rel="stylesheet" href="stile_interfaz.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
     <div class="background-image"></div>
     <nav>
         <ul class="menu">
-            <li><a href="interfaz.html">Inicio</a></li>
-            <li><a href="cliente.php">Clientes</a></li>
-            <li><a href="proveedores.php">Proveedores</a></li>
-            <li><a href="productos.php">Productos</a></li>
-            <li><a href="venta2.php">Ventas</a></li>
+            <li><a href="interfaz.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="cliente.php"><i class="fas fa-user"></i> Clientes</a></li>
+            <li><a href="proveedores.php"><i class="fas fa-truck"></i> Proveedores</a></li>
+            <li><a href="productos.php"><i class="fas fa-box"></i> Productos</a></li>
+            <li><a href="venta.php"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+            <li><a href="imprimir.php"><i class="fas fa-print"></i> Imprimir Venta</a></li>
+
         </ul>
     </nav>
     <div class="contenido">
         <h1>Gestionar Productos</h1>
-
-        <div class="card">
-            <h2>Agregar Producto</h2>
+            
             <?php
             include 'productos_BD.php'; // Incluye el archivo con la lógica de BD
             
@@ -36,6 +37,7 @@
             }
             ?>
             <form method="post">
+            <h2>Agregar Producto</h2>
                 <label>Nombre:</label>
                 <input type="text" name="nombre" required>
                 <br>
@@ -60,10 +62,9 @@
                 <br>
                 <input type="submit" name="agregar_producto" value="Agregar Producto">
             </form>
-        </div>
-        <div class="card">
+           
             <!-- Modificar Producto -->
-            <h2>Modificar Producto</h2>
+            
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['modificar_producto'])) {
                 include 'productos_BD.php'; // Incluye el archivo con la lógica de BD
@@ -75,7 +76,9 @@
                 echo "<p style='color: red;'>$error_modificar</p>";
             }
             ?>
+            <br>
             <form method="post">
+                <h2>Modificar Producto</h2>
                 <label>Nombre del Producto a Modificar:</label>
                 <input type="text" name="nombre_modificar" required>
                 <br>
@@ -103,10 +106,9 @@
                 <br>
                 <input type="submit" name="modificar_producto" value="Modificar Producto">
             </form>
-        </div>
-        <div class="card">
+            <br>
             <!-- Eliminar Producto -->
-            <h2>Eliminar Producto</h2>
+            
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar_producto'])) {
                 include 'productos_BD.php'; // Incluye el archivo con la lógica de BD
@@ -116,19 +118,19 @@
             }
             ?>
             <form method="post">
+            <h2>Eliminar Producto</h2>
                 <label>Nombre del Producto a Eliminar:</label>
                 <input type="text" name="nombre_eliminar" required>
                 <br>
                 <input type="submit" name="eliminar_producto" value="Eliminar Producto">
             </form>
-        </div>
-
-        <div class="card">
-            <h2>Mostrar Todos los Productos</h2>
+            <br>
+            
             <form method="post">
+                <h2>Mostrar Todos los Productos</h2>
                 <input type="submit" name="mostrar_todos" value="Mostrar Todos los Productos">
             </form>
-
+            <br>
             <?php
             // Mostrar Todos los Productos en una Tabla
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['mostrar_todos'])) {
@@ -136,8 +138,10 @@
                 $result_all = mysqli_query($mysqli_link, $select_all_query);
 
                 if ($result_all && mysqli_num_rows($result_all) > 0) {
+                    echo"<br>";
+                    echo"<form>";
                     echo "<h3>Lista de Todos los Productos:</h3>";
-                    echo "<table border='3'>
+                    echo "<center><table border='3'>
                 <tr>
                     <th>Nombre</th>
                     <th>Precio</th>
@@ -150,7 +154,8 @@
                     <td>{$row['stock']}</td>
                  </tr>";
                     }
-                    echo "</table>";
+                    echo "</table></center>";
+                    echo"</form";
                 } else {
                     echo "<p>No se encontraron productos.</p>";
                 }

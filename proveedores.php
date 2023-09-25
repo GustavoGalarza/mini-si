@@ -6,24 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UAJMS-Informatica</title>
-    <link rel="stylesheet" href="stile_interfaz.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
     <div class="background-image"></div>
     <nav>
         <ul class="menu">
-            <li><a href="interfaz.html">Inicio</a></li>
-            <li><a href="cliente.php">Clientes</a></li>
-            <li><a href="proveedores.php">Proveedores</a></li>
-            <li><a href="productos.php">Productos</a></li>
-            <li><a href="venta2.php">Ventas</a></li>
+            <li><a href="interfaz.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="cliente.php"><i class="fas fa-user"></i> Clientes</a></li>
+            <li><a href="proveedores.php"><i class="fas fa-truck"></i> Proveedores</a></li>
+            <li><a href="productos.php"><i class="fas fa-box"></i> Productos</a></li>
+            <li><a href="venta.php"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+            <li><a href="imprimir.php"><i class="fas fa-print"></i> Imprimir Venta</a></li>
+
         </ul>
     </nav>
     <div class="contenido">
         <h1>Gestionar Proveedores</h1>
-        <div class="card">
-            <h2>Agregar Proveedor</h2>
+        
+           
             <?php
             include 'proveedores_BD.php'; // Incluye el archivo con la lógica de BD
             
@@ -34,7 +37,8 @@
                 echo "<p style='color: red;'>$error_agregar</p>";
             }
             ?>
-            <form method="post">
+            <form method="post"> 
+                <h2>Agregar Proveedor</h2>
                 <label>RUT:</label>
                 <input type="text" name="rut" required>
                 <br>
@@ -61,11 +65,9 @@
                 <br>
                 <input type="submit" name="agregar_proveedor" value="Agregar Proveedor">
             </form>
-        </div>
-
-        <div class="card">
+        
             <!-- Modificar Proveedor -->
-            <h2>Modificar Proveedor</h2>
+            
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['modificar_proveedor'])) {
                 include 'proveedores_BD.php'; // Procesa el formulario de modificar en la misma página
@@ -78,6 +80,7 @@
             }
             ?>
             <form method="post">
+                <h2>Modificar Proveedor</h2>
                 <label>RUT del Proveedor a Modificar:</label>
                 <input type="text" name="rut_modificar" required>
                 <br>
@@ -104,11 +107,9 @@
                 <br>
                 <input type="submit" name="modificar_proveedor" value="Modificar Proveedor">
             </form>
-        </div>
-
-        <div class="card">
+        
             <!-- Eliminar Proveedor -->
-            <h2>Eliminar Proveedor</h2>
+            
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['eliminar_proveedor'])) {
                 include 'proveedores_BD.php'; // Procesa el formulario de eliminar en la misma página
@@ -121,17 +122,17 @@
             }
             ?>
             <form method="post">
+                <h2>Eliminar Proveedor</h2>
                 <label>RUT del Proveedor a Eliminar:</label>
                 <input type="text" name="rut_eliminar" required>
                 <br>
                 <input type="submit" name="eliminar_proveedor" value="Eliminar Proveedor">
             </form>
-        </div>
-
-        <div class="card">
+        
             <!-- Mostrar Proveedores -->
-            <h2>Mostrar Proveedores</h2>
+            <br>
             <form method="post">
+                <h2>Mostrar Proveedores</h2>
                 <input type="submit" name="mostrar_proveedores" value="Mostrar Proveedores">
             </form>
             <?php
@@ -142,6 +143,8 @@
                 $resultado_mostrar = $mysqli->query($mostrar_query);
 
                 if ($resultado_mostrar->num_rows > 0) {
+                    echo "<br>";
+                    echo "<form>";
                     echo "<table border='1'>
                 <tr>
                     <th>RUT</th>
@@ -166,6 +169,7 @@
                 </tr>";
                     }
                     echo "</table>";
+                    echo "</form>";
                 } else {
                     echo "No se encontraron resultados.";
                 }

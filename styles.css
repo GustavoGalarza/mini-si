@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:500');
+
+
+/* Estilo para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Color de fondo */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centra en vertical */
+}
+
+/* Estilo para los títulos */
+
+h1, h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500; /* Peso de la fuente 500 (bold) */
+}
+/* Estilo para los formularios */
+form {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center; /* Centra el contenido del formulario */
+}
+
+/* Estilo para las etiquetas (labels) */
+label {
+    font-weight: bold;
+    color: #555; /* Color del texto de la etiqueta */
+    display: block;
+    margin-bottom: 10px;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilo para los campos de entrada (inputs) y botones */
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+/* Estilo para los botones */
+input[type="submit"] {
+    background-color: #ff6600; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff6600; /* Color de fondo del botón al pasar el ratón */
+}
+/* Estilo para la barra de navegación */
+nav {
+    justify-content: center;
+    display: flex;
+    background-color: #333; /* Color de fondo de la barra de navegación */
+    padding: 10px 0; /* Espaciado interior superior e inferior */
+    text-align: center; /* Centrar el texto horizontalmente */
+}
+
+/* Estilo para la lista desordenada (ul) dentro de la barra de navegación */
+ul.menu {
+    list-style-type: none; /* Elimina los marcadores de lista */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para los elementos de la lista (li) dentro de la barra de navegación */
+ul.menu li {
+    display: inline; /* Mostrar los elementos de la lista en línea (uno al lado del otro) */
+    margin-right: 20px; /* Espaciado entre elementos de la lista */
+}
+
+/* Estilo para los enlaces (a) dentro de los elementos de la lista */
+ul.menu li a {
+    color: #fff; /* Color del texto del enlace */
+    text-decoration: none; /* Elimina la subrayado predeterminado de los enlaces */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Cambiar el color del enlace al pasar el mouse sobre él */
+ul.menu li a:hover {
+    color: #ff9900; /* Color de texto al pasar el mouse */
+}
+/* Estilo para los botones */
+button {
+    background-color: #ff6600; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 10px 20px; /* Espaciado interior del botón (arriba/abajo izquierda/derecha) */
+    border-radius: 5px; /* Borde redondeado del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón */
+}
+
+/* Cambiar el color del botón al pasar el mouse sobre él */
+button:hover {
+    background-color: #ff6600; /* Nuevo color de fondo del botón al pasar el mouse */
+}
+/* Estilo para los elementos input de tipo date */
+input[type="date"] {
+    padding: 5px; /* Espaciado interior del elemento input */
+    border: 1px solid #ccc; /* Borde del elemento input */
+    border-radius: 5px; /* Borde redondeado del elemento input */
+    font-size: 14px; /* Tamaño de fuente del elemento input */
+}
+
+/* Ajustar el tamaño del calendario emergente para los elementos date en algunos navegadores */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+}
+/* Estilo del contenido */
+.contenido {
+    padding: 50px 20px; /* Añade espacio alrededor del contenido */
+    text-align: center;
+    justify-content: center;
+    color: #000000; /* Color de texto blanco */
+  }
+  
+/* Estilo del menú */
+nav {
+    background-color: rgba(0, 0, 0); /* Fondo semi-transparente para el menú */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Coloca el menú delante del fondo */
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px; /* Altura del menú */
+  }
+  
+  .menu li {
+    margin: 0 15px;
+  }
+  
+  .menu a {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff; /* Color de texto blanco */
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .menu a:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ff6600; /* Color de la línea inferior al pasar el mouse */
+    bottom: 0;
+    left: 0;
+    transition: width 0.2s; /* Transición para la línea inferior */
+  }
+  
+  .menu a:hover:before {
+    width: 100%; /* Anima la línea al 100% al pasar el mouse */
+  }
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://cutewallpaper.org/21/naruto-jiraiya-wallpaper/Anime-Naruto-Naruto-Uzumaki-Jiraiya-Naruto-Wallpaper-.png') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Coloca el fondo detrás de todo */
+  }
+  form.tablass {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center; /* Centra el contenido del formulario */
+}
+.footer {
+    background-color: rgba(0, 0, 0); 
+    text-align: center;
+    padding: 10px 0;
+    color: #fff; /* Color de texto blanco */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    z-index: 2; /* Coloca el pie de página delante del fondo */
+  }
+  
+
+  .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Esto permite que los elementos se ajusten automáticamente si el espacio es insuficiente */
+}
+
+.izquierda {
+    flex: 1; /* Toma el 50% del espacio disponible */
+    padding: 20px; /* Agrega espacio alrededor del contenido */
+    text-align: left; /* Alinea el texto y otros elementos a la izquierda */
+}
+
+.derecha {
+    flex: 1;
+    padding: 20px;
+    text-align: right;
+    position: relative; /* Para posicionar los botones */
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slide {
+    flex: 1;
+    min-width: 100%;
+    transition: 0.5s;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
+    animation: desvanecer 4s ease-in-out infinite; /* Configuración de la animación */
+    border-radius: 20%; /* Para que la animación comience desde el centro */
+    overflow: hidden; /* Para ocultar las partes de la imagen fuera del círculo */
+}
+
+@keyframes desvanecer {
+    0% {
+        opacity: 0;
+        
+    }
+    25%{
+        opacity: 0,7;
+
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    75%{
+        opacity: 0,7;
+    }
+    100% {
+        opacity: 0;
+        
+    }
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}

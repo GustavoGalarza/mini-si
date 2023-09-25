@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stile_interfaz.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>UAJMS-Informatica</title>
 </head>
 
@@ -13,15 +14,75 @@
     <div class="background-image"></div>
     <nav>
         <ul class="menu">
-            <li><a href="interfaz.html">Inicio</a></li>
-            <li><a href="cliente.php">Clientes</a></li>
-            <li><a href="proveedores.php">Proveedores</a></li>
-            <li><a href="productos.php">Productos</a></li>
-            <li><a href="venta2.php">Ventas</a></li>
+            <li><a href="interfaz.html"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="cliente.php"><i class="fas fa-user"></i> Clientes</a></li>
+            <li><a href="proveedores.php"><i class="fas fa-truck"></i> Proveedores</a></li>
+            <li><a href="productos.php"><i class="fas fa-box"></i> Productos</a></li>
+            <li><a href="venta.php"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+            <li><a href="imprimir.php"><i class="fas fa-print"></i> Imprimir Venta</a></li>
+
         </ul>
     </nav>
-    <div class="contenido">
-        <h1>Bienvenido al Interfaz de Gestion de Ventas</h1>
+    <div class="contenidoss">
+
+        <section class="contenedor ">
+            <div class="izquierda">
+                <form class="formulaa">
+                    <h1>Bienvenido al Interfaz de Gestion de Ventas</h1>
+
+                    <p>En esta plataforma, puedes administrar clientes, proveedores, productos y ventas de tu negocio de
+                        manera eficiente.</p>
+
+                    <p>¡Explora las diferentes secciones del sistema para comenzar a gestionar tus operaciones!</p>
+
+                </form>
+
+            </div>
+            <div class="derecha">
+                <div class="slider">
+                    <div class="slide"><img src="https://www.questionpro.com/blog/wp-content/uploads/2017/02/0184.jpg" alt="Imagen 1"></div>
+                    <div class="slide"><img src="https://thelogisticsworld.com/wp-content/uploads/2020/09/proveedores-e1663621176409.jpeg" alt="Imagen 2"></div>
+                    <div class="slide"><img src="https://emprendepyme.net/wp-content/uploads/2023/03/cualidades-producto-1200x900.jpg" alt="Imagen 3"></div>
+                </div>
+                <button class="prev-btn">&#10094;</button>
+                <button class="next-btn">&#10095;</button>
+            </div>
+            <script>
+                let slideIndex = 0;
+                showSlides();
+                function showSlides() {
+                    let slides = document.getElementsByClassName("slide");
+
+                    for (let i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+
+                    slideIndex++;
+
+                    if (slideIndex > slides.length) {
+                        slideIndex = 1;
+                    }
+
+                    slides[slideIndex - 1].style.display = "block";
+
+                    setTimeout(showSlides, 3000); // Cambia la imagen cada 3 segundos (ajusta el tiempo según tus preferencias)
+                }
+
+                // Event listeners para los botones de desplazamiento
+                document.querySelector(".prev-btn").addEventListener("click", () => {
+                    slideIndex--;
+                    showSlides();
+                });
+
+                document.querySelector(".next-btn").addEventListener("click", () => {
+                    slideIndex++;
+                    showSlides();
+                });
+            </script>
+        </section>
+
+
+
     </div>
     <div class="footer">Gustavo Rafael Galarzar Arias</div>
 </body>

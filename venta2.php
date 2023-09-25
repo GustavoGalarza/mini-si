@@ -66,7 +66,7 @@
             </table>
 
             <label for="monto_total">Monto Total:</label>
-            <input type="number" name="monto_total" step="0.01" required><br><br>
+            <input type="number" name="monto_total" step="0.01" required><br>
 
             <input type="submit" value="Agregar Detalle de Venta">
         </form>
